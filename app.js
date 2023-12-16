@@ -20,6 +20,18 @@ const renderIPData = (ip, timeZone) => {
   headerEl.innerHTML += html;
 };
 
+
+var customIcon = L.icon({
+  iconUrl: 'images/icon-location.svg',
+  iconSize: [50, 50], // Set the size of your icon
+  iconAnchor: [19, 10], // Set the anchor point of your icon
+  popupAnchor: [0, -38] // Set the popup's anchor point
+});
+
+
+
+
+
 const renderMap = () => {
   navigator.geolocation.getCurrentPosition(
     function (position) {
@@ -34,7 +46,7 @@ const renderMap = () => {
           '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       }).addTo(map);
 
-      L.marker([latitude, longitude]).addTo(map).openPopup();
+      var marker = L.marker([latitude, longitude], { icon: customIcon }).addTo(map);
     },
     function () {
       alert("Could not get your position");
@@ -58,8 +70,7 @@ const getIPData = async () => {
     .map((word) => word.charAt(0))
     .join("");
 
-  renderIPData(ipData, timeZone);
-  console.log(ipData);
+  renderIPData(ipData, timeZone);;
   renderMap();
 };
 
