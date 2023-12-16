@@ -62,6 +62,8 @@ h2 {
   font-weight: 300;
 }
 
+
+
 .search-box {
   display: flex;
   align-items: center;
@@ -79,6 +81,10 @@ h2 {
   position: relative;
   top: 20px;
   z-index: 10000;
+}
+
+.ip-data h3{
+  margin: 0.3em 0 1em 0;
 }
 
 #map {
