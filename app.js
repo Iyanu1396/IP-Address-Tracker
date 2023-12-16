@@ -23,9 +23,9 @@ const renderIPData = (ip, timeZone) => {
 
 var customIcon = L.icon({
   iconUrl: 'images/icon-location.svg',
-  iconSize: [50, 45], // Set the size of your icon
-  iconAnchor: [19, 10], // Set the anchor point of your icon
-  popupAnchor: [0, -38] // Set the popup's anchor point
+  iconSize: [45, 40],
+  iconAnchor: [19, 15],
+  popupAnchor: [0, -38]
 });
 
 
