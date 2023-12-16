@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: hsl(0, 0%, 17%);
+  font-family: "Rubik", sans-serif;
+}
+
+.icon-arrow {
+  background-color: hsl(0, 0%, 17%);
+  padding: 0.98em;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+header {
+  background-image: url(images/pattern-bg-mobile.png);
+  background-size: cover;
+  height: 300px;
+  padding: 2em 0 1em 0;
+}
+
+h2 {
+  color: white;
+  margin: 0;
+  padding-bottom: 1em;
+  font-weight: 500;
+}
+
+.ip-data small {
+  color: hsl(0, 0%, 59%);
+  font-weight: 700;
+}
+
+.ip-data h3 {
+  font-weight: 700;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.search-box input {
+  height: 2.6em;
+  width: 15em;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  outline: none;
+  padding-left: 1em;
+}
+
+.search-box input[type="text"] {
+  font-family: inherit;
+  color: inherit;
+  font-size: 1.125rem;
+  color: inherit;
+  font-weight: 300;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-box :hover {
+  cursor: pointer;
+}
+
+.ip-data {
+  background-color: white;
+  padding: 1em 0;
+  border-radius: 15px;
+  position: relative;
+  top: 20px;
+  z-index: 10000;
+}
+
+#map {
+  height: 300px;
+}
