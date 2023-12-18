@@ -42,7 +42,7 @@ const renderIPData = (ip, timeZone) => {
 // Render Ip data on UI on search
 const renderIPDataSearch = (ip, timeZone) => {
   ipContainer.insertAdjacentHTML = "";
-  // inputEl.value = ip.ip;
+  inputEl.value = ''
   const html = ` 
   <div>
   <small> IP ADDRESS </small>
