@@ -61,8 +61,9 @@ h2 {
   color: inherit;
   font-weight: 300;
 }
-
-
+.search-box input::placeholder {
+  font-size: 0.9rem;
+}
 
 .search-box {
   display: flex;
@@ -83,11 +84,69 @@ h2 {
   z-index: 10000;
 }
 
-.ip-data h3{
+.ip-data h3 {
   margin: 0.3em 0 1em 0;
 }
 
 #map {
   height: 650px;
   background-color: hsl(0, 0%, 59%);
+}
+
+@media (min-width: 768px) {
+  header {
+    background-image: url(images/pattern-bg-desktop.png);
+    background-size: cover;
+    height: 270px;
+  }
+  h2 {
+    font-size: 2em;
+  }
+  .search-box input {
+    height: 3em;
+    width: 25em;
+    padding-left: 1em;
+  }
+  .search-box input::placeholder {
+    font-size: 1.125rem;
+  }
+  .icon-arrow {
+    padding: 1.25em;
+  }
+  .ip-data  {
+    display: flex;
+    padding: 2em 0 2em 1.3em;
+    justify-content:flex-start;
+    gap: 2em;
+    position: relative;
+    top: 50px;
+    max-width: 700px;
+    text-align: left;
+  }
+  .ip-data small{
+    display: flex;
+  }
+  .ip-data h3 {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+
+  .divider {
+    border-left: 2px solid hsl(0, 0%, 59%);
+    padding-left: 1.3em;
+
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .ip-data h3{
+    font-size: 1.5em;
+    padding-right: 2em;
+ 
+  }
+  .ip-data{
+    max-width: 1000px;
+  }
+
 }
