@@ -4,7 +4,8 @@ const ipContainer = document.querySelector(".ip-data");
 const inputEl = document.querySelector(".input");
 const searchBtn = document.querySelector(".icon-arrow");
 const form = document.querySelector(".form");
-const map = document.querySelector("#map1");
+const mapOne = document.querySelector("#map1");
+const mapTwo = document.querySelector("#map2");
 
 
 // Render Error
@@ -64,6 +65,7 @@ const renderIPDataSearch = (ip, timeZone) => {
 // Display Map on page load
 let map1;
 const renderMap = () => {
+  mapTwo.style.display = "none";
   var customIcon = L.icon({
     iconUrl: "images/icon-location.svg",
     iconSize: [50, 60],
@@ -97,7 +99,8 @@ const renderMap = () => {
 
 let map2;
 const renderMapSearch = (lat, lng) => {
-  map.style.display = "none";
+  mapOne.style.display = "none";
+  mapTwo.style.display = "block";
   if (map2) {
     map2.remove();
   }
