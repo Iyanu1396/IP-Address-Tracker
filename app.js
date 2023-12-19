@@ -119,7 +119,7 @@ const renderMapSearch = (lat, lng) => {
 
   var marker = L.marker([lat, lng], { icon: customIcon }).addTo(map2);
 
-  console.log(map1);
+
 };
 
 // Get IP data on page load
@@ -160,8 +160,7 @@ const searchIP = async function (ip) {
     renderIPDataSearch(ipData, timeZone);
     renderMapSearch(ipData.location.lat, ipData.location.lng);
   } catch (err) {
-    // renderError();
-    console.log(err.message);
+    renderError();
   }
 };
 
