@@ -5,7 +5,7 @@ const inputEl = document.querySelector(".input");
 const searchBtn = document.querySelector(".icon-arrow");
 const form = document.querySelector(".form");
 const map = document.querySelector("#map1");
-inputEl.value = "";
+
 
 // Render Error
 const renderError = function () {
@@ -98,8 +98,8 @@ const renderMap = () => {
 let map2;
 const renderMapSearch = (lat, lng) => {
   map.style.display = "none";
-  if (map1) {
-    map1.remove();
+  if (map2) {
+    map2.remove();
   }
 
   var customIcon = L.icon({
@@ -160,7 +160,8 @@ const searchIP = async function (ip) {
     renderIPDataSearch(ipData, timeZone);
     renderMapSearch(ipData.location.lat, ipData.location.lng);
   } catch (err) {
-    renderError();
+    // renderError();
+    console.log(err.message);
   }
 };
 
