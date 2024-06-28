@@ -7,18 +7,19 @@ const form = document.querySelector(".form");
 const mapOne = document.querySelector("#map1");
 const mapTwo = document.querySelector("#map2");
 
-
 // Render Error
 const renderError = function () {
   ipContainer.innerHTML = "";
   const html = `<h3>Couldn't display IP info kindly check your internet connection or try again later 😔</h3> `;
   ipContainer.innerHTML = html;
+renderMapSearch(0 , 0)
+ 
 };
 
 // Render Ip data on UI on page load
-const renderIPData = (ip, timeZone) => {
+const renderIPData = (ip) => {
   ipContainer.innerHTML = "";
-  const html = ` 
+  const html = `  
   <div>
   <small> IP ADDRESS </small>
   <h3>${ip.ip}</h3>
@@ -29,7 +30,7 @@ const renderIPData = (ip, timeZone) => {
 </div>
 <div class="divider">
 <small> TIMEZONE </small>
-<h3>${timeZone} ${ip.location.timezone}</h3>
+<h3> ${ip.location.timezone}</h3>
 </div>
 <div class="divider">
 <small> ISP </small>
@@ -41,9 +42,8 @@ const renderIPData = (ip, timeZone) => {
 };
 
 // Render Ip data on UI on search
-const renderIPDataSearch = (ip, timeZone) => {
+const renderIPDataSearch = (ip) => {
   ipContainer.insertAdjacentHTML = "";
-  inputEl.value = ''
   const html = ` 
   <div>
   <small> IP ADDRESS </small>
@@ -121,31 +121,20 @@ const renderMapSearch = (lat, lng) => {
   );
 
   var marker = L.marker([lat, lng], { icon: customIcon }).addTo(map2);
-
-
 };
 
 // Get IP data on page load
 const getIPData = async () => {
   try {
-    const res1 = fetch(
+    const res = fetch(
       "https://geo.ipify.org/api/v2/country,city?apiKey=at_CCdKhbjkOlcSEUlc8gAfZLbnA07gQ"
     ).then((res) => res.json());
 
-    const res2 = fetch(
-      "https://timezoneapi.io/api/ip/?token=amfhcIRUCzfROLcHjmAM"
-    ).then((res) => res.json());
-
-    const [ipData, timeZoneDate] = await Promise.all([res1, res2]);
-
-    let timeZone = String(timeZoneDate.data.datetime.offset_tzfull)
-      .split(" ")
-      .map((word) => word.charAt(0))
-      .join("");
+    const ipData = await res;
+    inputEl.value = ipData.ip
 
     renderMap();
-    renderIPData(ipData, timeZone);
-    return timeZone;
+    renderIPData(ipData);
   } catch (err) {
     renderError();
   }
@@ -159,8 +148,8 @@ const searchIP = async function (ip) {
       `https://geo.ipify.org/api/v2/country,city?apiKey=at_CCdKhbjkOlcSEUlc8gAfZLbnA07gQ&ipAddress=${ip}`
     );
     const ipData = await res.json();
-    const timeZone = await getIPData();
-    renderIPDataSearch(ipData, timeZone);
+    
+    renderIPDataSearch(ipData);
     renderMapSearch(ipData.location.lat, ipData.location.lng);
   } catch (err) {
     renderError();
